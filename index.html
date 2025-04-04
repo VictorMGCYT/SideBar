@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador Vanilla JS</title>
+    <style>
+        .container {
+            width: 400px;
+            border: 1px solid gray;
+            border-radius: 20px;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+            padding: 20px;
+            text-align: center;
+            margin: auto;
+            margin-top: 100px;
+        }
+        button {
+            margin: 5px;
+            padding: 10px;
+            background: lightgreen;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background: greenyellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>El contador está en: <span id="contador">0</span></h1>
+        <button id="decrement">Decrementar</button>
+        <button id="restart">Restablecer</button>
+        <button id="increment">Incrementar</button>
+        <button id="increment2">Incrementar2</button>
+    </div>
+
+    <script>
+        let count = Number(localStorage.getItem("contador")) || 0;
+        const contadorEl = document.getElementById("contador");
+        contadorEl.textContent = count;
+
+        function updateCount(value) {
+            count += value;
+            contadorEl.textContent = count; // Solo actualiza el texto dentro del span
+            localStorage.setItem("contador", count);
+        }
+
+        document.getElementById("decrement").addEventListener("click", () => updateCount(-1));
+        document.getElementById("restart").addEventListener("click", () => updateCount(-count));
+        document.getElementById("increment").addEventListener("click", () => updateCount(1));
+        document.getElementById("increment2").addEventListener("click", () => updateCount(2));
+    </script>
+</body>
+</html>

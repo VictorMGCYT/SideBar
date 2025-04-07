@@ -1,6 +1,7 @@
 
 import Layout from './Layout'
 import Profile from './Perfil'
+import SettingsStudents from './Settings'
 
 
 
@@ -12,9 +13,10 @@ function App() {
     <>
       
       <Layout>
-        <Profile>
+        {/* <Profile>
           
-        </Profile>
+        </Profile> */}
+        <SettingsStudents/>
       </Layout>
       
     </>

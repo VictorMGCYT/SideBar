@@ -16,11 +16,12 @@ function Layout({children}: {children?: any}) {
                 </main>
                 <div 
                 className='flex items-center justify-end right-4 
-                fixed top-0 h-[60px] w-full border-b border-b-gray-200 gap-4 bg-white'>
+                fixed top-0 h-[60px] w-full border-b border-b-gray-200 gap-4 bg-white
+                dark:bg-neutral-950'>
                     <Bell size={20}/>
                     <Avatar>
                         <AvatarImage></AvatarImage>
-                        <AvatarFallback className='bg-amber-100 p-2 rounded-full'>
+                        <AvatarFallback className='bg-amber-100 p-2 rounded-full dark:text-black'>
                             UN
                         </AvatarFallback>
                     </Avatar>

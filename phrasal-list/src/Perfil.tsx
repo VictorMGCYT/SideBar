@@ -3,11 +3,36 @@ import { Button } from "./components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./components/ui/card";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "./components/ui/dialog";
 import '@react-pdf-viewer/core/lib/styles/index.css';
+import { randomUUID } from "crypto";
+import { useState } from "react";
 
+interface studentInterface {
+    name: string;
+    paternalSurname: string;
+    maternalSurname: string;
+    contact_email: string;
+    career: string;
+    skills: string[];
+    languages: string[];
+    cv_url: string;
+    phone_number: string;
+}
+
+const student: studentInterface = {
+    name: "Víctor Manuel",
+    paternalSurname: "González",
+    maternalSurname: "Cabrera",
+    contact_email: "victormgc2003@gmail.com",
+    career: "Sistemas Computacionales",
+    skills: ['Trabajo en equipo', 'Comunicación efectiva', 'Puntualidad'],
+    languages: ['Inglés', 'Español', 'Portugues', 'Frances'],
+    cv_url: "https://res.cloudinary.com/dbhvyfedz/image/upload/v1743736741/cv_students/mwrfulpphwpsctykp0gz.pdf",
+    phone_number: "4181583406"
+}
 
 function Profile() {
 
-    const pdfUrl = "https://res.cloudinary.com/dbhvyfedz/image/upload/v1743736741/cv_students/mwrfulpphwpsctykp0gz.pdf";
+    
 
     return(
         <>
@@ -22,7 +47,7 @@ function Profile() {
                     </p>
                 </div>
                 <Button 
-                    className="bg-amber-500 mr-auto ml-auto w-full md:ml-auto md:w-[50%] md:mr-0 hover:bg-amber-600 hover:cursor-pointer">
+                    className="bg-amber-500 mr-auto ml-auto w-[90%] md:ml-auto md:w-[50%] md:mr-0 hover:bg-amber-600 hover:cursor-pointer">
                     Editar Perfil
                 </Button>
             </div>
@@ -61,7 +86,7 @@ function Profile() {
                             </DialogHeader>
                             <iframe
                                 className="max-h-[80vh]"
-                                src={pdfUrl}
+                                src={student.cv_url}
                                 width="100%"  
                                 height="600px" 
                                 style={{ border: 'none' }}
